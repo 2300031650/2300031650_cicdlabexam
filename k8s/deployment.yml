@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carental-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: carental-frontend
+  template:
+    metadata:
+      labels:
+        app: carental-frontend
+    spec:
+      containers:
+        - name: carental-frontend
+          image: YOUR_DOCKERHUB_USERNAME/carental:latest
+          ports:
+            - containerPort: 80
